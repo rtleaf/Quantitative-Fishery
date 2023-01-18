@@ -1,0 +1,108 @@
+---
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook:
+    lib_dir: "book_assets"
+    toc_depth: 2
+  bookdown::pdf_book:
+    keep_tex: yes
+---
+
+```{r, include=FALSE}
+require(tidyverse)
+syl.comp <- readr::read_csv("Syllabus Components.csv")
+
+```
+
+# `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Title")])`
+
+Date: `r format(Sys.time(), '%d %B %Y')`
+
+Instructor: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Instructor")])`
+
+Office: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Office")])`
+
+Office Hours: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Office Hours")])`
+
+Please DO NOT hesitate to reach out to me anytime.
+
+Email: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Email")])`
+
+Course Meeting Day and Time: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Days")])`, `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Time")])`
+
+## Course Text and Course Materials
+
+Course Readings (https://tinyurl.com/yh46djab)
+
+Quinn, Terrance J., and Richard B. Deriso. Quantitative fish dynamics. oxford university Press, 1999. Available as an e-book through USM libraries.
+
+## Course Description and Objectives
+This course addresses basic and advanced quantitative approaches to methods of fishery assessment and fishery science. 
+
+## At the conclusion of this course: 
+
+The objectives of this course are: 
+
+*	Provide an overview of the approach and process of fisheries management. 
+
+*	Introduce quantitative methods of fisheries assessment and understand the management implications of these models.  
+
+*	Expose students to current and classical literature related to fisheries management.  
+
+*	Promote an interest and understanding of scientific research related to fisheries management, including critical thinking and developement of quantitative skills.  
+
+* Encourage unique approaches to fishery management and assessment challenges.
+
+* Leverage knowledge developed in coastal and marine sciences academic programs to solve regional fishery challenges.
+
+## Course Workload Statement
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Workload Statement")])`
+
+## Course Evaluation
+```{r, echo=FALSE, message=FALSE}
+gs.scale <- read.csv("Grading Scale.csv")
+names(gs.scale) <- c("Percentage", "Letter Grade")
+knitr::kable(gs.scale)
+```
+
+## Homework policy
+All work for the class is due on the assigned date. No late work will be accepted. 
+
+## Grading scale
+```{r, echo=FALSE, message=FALSE}
+course.eval <- read.csv("Course Evaluation.csv")
+names(course.eval) <- c("Evaluation type",	"Number",	"Points per item",	"Total points")
+knitr::kable(course.eval)
+```
+
+## Course Scheduling
+```{r, echo=FALSE, message=FALSE}
+gs.scale <- read.csv("Course Schedule.csv")
+gs.scale <- gs.scale[,c(1,2,4,5)]
+names(gs.scale) <- c("Class Number", "Date", "Subject", "Reading and Notes")
+knitr::kable(gs.scale)
+```
+
+## Academic Support Resources
+
+If a student believes that they have a disability that is covered by the Americans with Disabilities Act (ADA) and makes them eligible to receive classroom accommodations, they should contact the Office for Disability Accommodations (ODA) for information regarding the registration process. Disabilities covered by the ADA may include but are not limited to ADHD, learning disabilities, psychiatric disabilities, physical disabilities, chronic health disorders, temporary illnesses or injuries and pregnancies. Students should contact ODA if they are not certain whether their documented medical condition qualifies for ODA services. Students are only required to disclose their disability to the Office for Disability Accommodations. All information submitted to ODA by the student is held with strict confidentiality.
+
+## Mental Well-Being Statement
+
+I recognize that students sometimes experience challenges that make learning difficult. If you find that life stressors such as anxiety, depression, relationship problems, difficulty concentrating, alcohol or drug problems, or other stressful experiences are interfering with your academic or personal success, consider contacting Student Counseling Services on campus at 601-266-4829. More information is also available at www.usm.edu and search for student counseling services. All students are eligible for free, confidential individual or group counseling services. In the event of emergency, please call 911 or contact the counselor on call at 601-606-HELP (4357).
+
+Staying physically and mentally healthy is important and challenging during these pandemic times. Be sure to get enough sleep, eat regularly, and stay connected to loved ones, particularly during stressful periods. The university also has resources to help with stress management and mental health, including online support resources and in-person counseling through Student Counseling Services. EagleCARES provides a platform for all students to connect with emotional support network online (click here for more details). Moffitt Health Center is also available to address your health care needs, with both appointments and online resources. If you have concerns about your well-being, reach out and let us know so that we can help. 
+
+## Nondiscrimination Statement
+
+The University of Southern Mississippi offers to all persons equal access to educational, programmatic and employment opportunities without regard to age, sex, sexual orientation, disability, pregnancy, gender identity, genetic information, religion, race, color, national origin, and or  veteran status pursuant to applicable state and federal law.
+
+## Confidentiality and Mandatory Reporting
+
+As an instructor, one of my responsibilities is to help create and maintain a safe learning environment. I have a mandatory reporting responsibility related to my role as a faculty member. I am required to share information regarding sexual misconduct or information about a crime that may have occurred on USM’s campus with certain University officials responsible for the investigation and remediation of sexual misconduct. The information will remain private and will only be shared with those officials necessary to resolve the matter. If you would like to speak in confidence, resources available to students include Confidential Advisors with the Shafer Center for Crisis Intervention, the Counseling Center, and Student Health Services. More information on these resources and University Policies is available atwww.usm.edu and serach for sexual misconduct.
+
+## Academic Integrity
+
+All students at the University of Southern Mississippi are expected to demonstrate the highest levels of academic integrity. Forms of academic dishonesty include cheating (including copying from others’ work), plagiarism (representing another person’s words or ideas as your own; failure to properly cite the source of your information, argument, or concepts), falsification of documents, disclosure of or use of test material or other assignment content to another student, submission of the same paper or other assignment to more than one class without the explicit approval of all faculty members involved, unauthorized academic collaboration with others, conspiracy to engage in academic misconduct.
+
+Engaging in any of these behaviors or supporting others who do so will result in academic penalties and/or other sanctions. If a faculty member determines that a student has violated our Academic Integrity Policy, sanctions ranging from resubmission of work to course failure may occur, including the possibility of receiving a grade of “XF” for the course, which will be on the student’s transcript with the notation “Failure due to academic misconduct.”  
